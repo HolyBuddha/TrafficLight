@@ -16,25 +16,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        greenLightView.layer.cornerRadius = 50
-        yellowLightView.layer.cornerRadius = 50
-        redLightView.layer.cornerRadius = 50
+        greenLightView.layer.cornerRadius = greenLightView.frame.width / 2
+        yellowLightView.layer.cornerRadius = yellowLightView.frame.width / 2
+        redLightView.layer.cornerRadius = redLightView.frame.width / 2
     }
 
     @IBAction func startButtonPressed() {
+        startButton.setTitle("NEXT", for: .normal)
         if redLightView.alpha == 0.3 {
-            startButton.setTitle("NEXT", for: .normal)
             redLightView.alpha = 1.0
         } else if redLightView.alpha == 1.0 {
-            startButton.setTitle("NEXT", for: .normal)
             redLightView.alpha = 0.3
             yellowLightView.alpha = 1.0
         } else if yellowLightView.alpha == 1.0 {
-            startButton.setTitle("NEXT", for: .normal)
             yellowLightView.alpha = 0.3
             greenLightView.alpha = 1.0
         } else {
-            startButton.setTitle("NEXT", for: .normal)
             redLightView.alpha = 1.0
             greenLightView.alpha = 0.3
         }
